@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span routerLink="" class="branding">INV MGM</span>
+    <span class="spacer"></span>
+    <div>
+      <button mat-button class="nav-button" [routerLink]="['']">
+        Dashboard
+      </button>
+      <button mat-button [matMenuTriggerFor]="dev">
+        Manage <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #dev="matMenu">
+        <button mat-menu-item [routerLink]="['/stock']">Products</button>
+        <button mat-menu-item [routerLink]="['/inventory']">Inventory</button>
+      </mat-menu>
+      <button mat-button class="nav-button" (click)="authService.logout()">
+        Logout
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
