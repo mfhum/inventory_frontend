@@ -15,7 +15,7 @@ const routes: Routes = [
         loadChildren: './inventory/inventory.module#InventoryModule'
       },
       { path: 'stock', loadChildren: './stock/stock.module#StockModule' },
-      { path: '', component: DashboardComponent }
+      { path: '', loadChildren: './inventory/inventory.module#InventoryModule' }
     ]
   },
   {
