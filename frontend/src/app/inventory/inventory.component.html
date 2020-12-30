@@ -1,1 +1,35 @@
-<p>inventory works!</p>
+<div class="singleproduct" *ngFor="let product of products">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ product.name }} Stock: {{ product.amount }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ product.productDescription }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>ID: {{ product.id }}, Product Type: {{ product.productType }}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div class="button-container">
+    <button
+      mat-mini-fab
+      class="fab-icon"
+      (click)="handleStock(product.id, 'rem')"
+      color="accent"
+    >
+      <mat-icon>exposure_neg_1</mat-icon>
+    </button>
+  </div>
+  <div class="button-container">
+    <button
+      mat-mini-fab
+      class="fab-icon"
+      (click)="handleStock(product.id, 'add')"
+      color="accent"
+    >
+      <mat-icon>exposure_plus_1</mat-icon>
+    </button>
+  </div>
+</div>

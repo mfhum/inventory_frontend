@@ -20,6 +20,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AuthModule
   ],
   providers: [],
-  bootstrap: [AppComponent, DashboardComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

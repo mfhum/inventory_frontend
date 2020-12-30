@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ProducthandlingService } from '../services/producthandling.service';
 interface Product {
   name: string;
   amount: number;
@@ -13,7 +13,7 @@ interface Product {
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  product: Product[] = [
+  products: Product[] = [
     {
       name: 'Sprite',
       amount: 2,
@@ -36,7 +36,14 @@ export class InventoryComponent implements OnInit {
       productDescription: 'A cool Drink'
     }
   ];
-  constructor() {}
+
+  handleStock(taskId: number, handling: string) {
+    //handling for rem and add
+    this.productService.handle(taskId).subscribe(data => {
+      console.log(data);
+    });
+  }
+  constructor(private productService: ProducthandlingService) {}
 
   ngOnInit() {}
 }
