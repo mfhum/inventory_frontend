@@ -45,5 +45,7 @@ export class InventoryComponent implements OnInit {
   }
   constructor(private productService: ProducthandlingService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    //load in response
+  }
 }

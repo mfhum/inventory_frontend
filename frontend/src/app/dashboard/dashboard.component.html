@@ -1,10 +1,25 @@
+<h1>Inventory Management</h1>
+<h3>Inventar</h3>
 <div class="button-container mb-5">
-  <button mat-mini-fab class="fab-icon" color="accent">
+  <button
+    mat-mini-fab
+    class="fab-icon"
+    color="accent"
+    [routerLink]="['/inventory']"
+    routerLinkActive="router-link-active"
+  >
     <mat-icon>menu</mat-icon>
   </button>
 </div>
+<h3>Produkte</h3>
 <div class="button-container">
-  <button mat-mini-fab class="fab-icon" color="accent">
+  <button
+    mat-mini-fab
+    class="fab-icon"
+    color="accent"
+    [routerLink]="['/stock']"
+    routerLinkActive="router-link-active"
+  >
     <mat-icon>plus_one</mat-icon>
   </button>
 </div>

@@ -1,1 +1,108 @@
-<p>stock works!</p>
+<h1>Add new Product</h1>
+
+<div class="content">
+  <div>
+    <mat-card class="createProduct mt-2 mb-2">
+      <form [formGroup]="createProductForm">
+        <mat-card-title>Produkterstellung</mat-card-title>
+        <mat-card-content>
+          <span
+            class="mr-2"
+            *ngIf="
+              (name.touched || name.dirty) &&
+              name.invalid &&
+              name.errors.required
+            "
+            >Ein Name wird benötigt!</span
+          >
+          <span
+            class="mr-2"
+            *ngIf="
+              (name.touched || name.dirty) &&
+              name.invalid &&
+              name.errors.pattern
+            "
+            >Bitte gültigen Namen angeben!</span
+          >
+          <span
+            class="mr-2"
+            *ngIf="
+              (amount.touched || amount.dirty) &&
+              amount.invalid &&
+              amount.errors.required
+            "
+            >Eine Anzahl wird benötigt!</span
+          >
+          <span
+            class="mr-2"
+            *ngIf="
+              (amount.touched || amount.dirty) &&
+              amount.invalid &&
+              amount.errors.pattern
+            "
+            >Bitte gültige Anzahl angeben!</span
+          >
+          <br />
+          <mat-form-field class="mr-2" appearance="outline">
+            <mat-label>Name* (a-z0-9)</mat-label>
+            <input matInput [formControl]="name" />
+          </mat-form-field>
+          <mat-form-field class="mr-2" appearance="outline">
+            <mat-label>Bestand*</mat-label>
+            <input
+              matInput
+              type="number"
+              min="1"
+              placeholder="0"
+              [formControl]="amount"
+            />
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-title>Infos</mat-card-title>
+        <mat-card-content>
+          <span
+            class="mr-2"
+            *ngIf="
+              (type.touched || type.dirty) &&
+              type.invalid &&
+              type.errors.required
+            "
+            >Ein Typ wird benötigt!</span
+          >
+          <span
+            class="mr-2"
+            *ngIf="
+              (desc.touched || desc.dirty) &&
+              desc.invalid &&
+              desc.errors.required
+            "
+            >Eine Beschreibung wird benötigt!</span
+          >
+          <br />
+          <mat-form-field class="mr-2" appearance="outline">
+            <mat-label>Produkttyp*</mat-label>
+            <input matInput [formControl]="type" />
+          </mat-form-field>
+          <mat-form-field class="mr-2" appearance="outline">
+            <mat-label>Produktbeschreibung*</mat-label>
+            <input matInput [formControl]="desc" />
+          </mat-form-field>
+        </mat-card-content>
+
+        <span *ngIf="!createProductForm.valid"
+          >Bitte alle Pflichtfelder ausfüllen!
+        </span>
+        <br />
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="createProduct()"
+          [disabled]="!createProductForm.valid"
+        >
+          Erstellen
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

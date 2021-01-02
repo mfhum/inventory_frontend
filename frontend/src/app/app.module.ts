@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StockComponent } from './stock/stock.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { InventoryComponent } from './inventory/inventory.component';
     AppRoutingModule,
     ComponentsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MaterialModule,
     AuthModule
   ],
