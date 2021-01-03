@@ -9,6 +9,7 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent
   },
+  { path: 'login', component: LoginComponent },
   { path: 'stock', component: StockComponent },
   { path: 'inventory', component: InventoryComponent },
   {
