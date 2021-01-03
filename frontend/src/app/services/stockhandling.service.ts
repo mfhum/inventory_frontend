@@ -18,13 +18,17 @@ export class StockhandlingService {
 
   public create(product: Product): Observable<any> {
     console.log(product);
-    return this.httpClient.post<any>(this.endpoint, product, this.httpOptions);
+    return this.httpClient.post<any>(
+      this.endpoint + 'product/create',
+      product,
+      this.httpOptions
+    );
   }
 
   public getProduct(productId: number): Observable<any> {
     console.log(productId);
     return this.httpClient.post<any>(
-      this.endpoint,
+      this.endpoint + 'product/get',
       productId,
       this.httpOptions
     );

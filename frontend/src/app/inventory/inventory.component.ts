@@ -39,9 +39,15 @@ export class InventoryComponent implements OnInit {
 
   handleStock(taskId: number, handling: string) {
     //handling for rem and add
-    this.productService.handle(taskId).subscribe(data => {
-      console.log(data);
-    });
+    if (handling === 'rem') {
+      this.productService.remove(taskId).subscribe(data => {
+        console.log(data);
+      });
+    } else {
+      this.productService.add(taskId).subscribe(data => {
+        console.log(data);
+      });
+    }
   }
   constructor(private productService: ProducthandlingService) {}
 

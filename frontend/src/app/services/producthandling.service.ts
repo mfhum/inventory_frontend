@@ -7,7 +7,7 @@ import { Product } from '../models/product';
   providedIn: 'root'
 })
 export class ProducthandlingService {
-  private endpoint = 'backendurl/remoradd';
+  private endpoint = 'http://127.0.0.1:8000/';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -16,16 +16,28 @@ export class ProducthandlingService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public handle(productId: number): Observable<any> {
+  public add(productId: number): Observable<any> {
     console.log(productId);
     return this.httpClient.post<any>(
-      this.endpoint,
+      this.endpoint + 'inv/add',
+      productId,
+      this.httpOptions
+    );
+  }
+
+  public remove(productId: number): Observable<any> {
+    console.log(productId);
+    return this.httpClient.post<any>(
+      this.endpoint + 'inv/rem',
       productId,
       this.httpOptions
     );
   }
 
   public getProducts(): Observable<any> {
-    return this.httpClient.get<any>(this.endpoint, this.httpOptions);
+    return this.httpClient.get<any>(
+      this.endpoint + 'inv/getall',
+      this.httpOptions
+    );
   }
 }
