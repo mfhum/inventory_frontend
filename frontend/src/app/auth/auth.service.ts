@@ -75,6 +75,13 @@ export class AuthService {
   }
 
   public getTokenExpirationInDays(): Number {
-    return 1;
+    const decoded = jwt_decode(this.token);
+    if (decoded.exp === undefined) return null;
+    const expirationDate = new Date(0);
+    expirationDate.setUTCSeconds(decoded.exp);
+    const today = new Date();
+    const timeDiff =
+      (expirationDate.getTime() - today.getTime()) / (1000 * 3600 * 24);
+    return timeDiff;
   }
 }
